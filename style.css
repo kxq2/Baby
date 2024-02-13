@@ -1,226 +1,190 @@
-@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 body {
-  background-color: #ddd;
-  font-family: 'Poiret One', Segoe UI Light, cursive;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff758f;
 }
 
-#card {
+.valentines-day-card {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  background-color: #ff8fa3;
+  overflow: hidden;
+  border:10px solid white;
+  border-radius:10px;
+  box-shadow: 0 0 100px rgba(0,0,0,.4);
+}
+
+.valentines-day-card:before {
+  content:"";
   position: absolute;
-  top: 100px;
-  width: 460px;
-  height: 260px;
-  left: 50%;
-  margin-left: -230px;
+  background-color: #ffb3c1;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  top:140px;
+  left:-25px;
+  box-shadow:60px 20px #ffb3c1,130px 10px #ffb3c1, 190px 20px #ffb3c1,260px -5px #ffb3c1, 340px 20px #ffb3c1;
 }
 
-#card .heart {
-  width: 260px;
-  height: 260px;
-  float: left;
+.valentines-day-card:after {
+  content:"";
+  position: absolute;
+  background-color: #ffccd5;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  top:160px;
+  left:-40px;
+  box-shadow: 50px 20px #ffccd5,120px 40px #ffccd5, 200px 15px #ffccd5,260px 30px #ffccd5, 330px 30px #ffccd5,380px 10px #ffccd5;
 }
-#card .heart #circle {
-  height: 130px;
-  width: 130px;
-  border-radius: 50%;
-  background-color: #D32F2F;
+
+.clouds {
+  position: absolute;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background-color: #fff0f3;
+  z-index:5;
+  top:210px;
+  left:-20px;
+  box-shadow: 55px 30px #fff0f3, 125px 10px #fff0f3,175px 20px #fff0f3, 250px 10px #fff0f3, 320px 5px #fff0f3, 380px 10px #fff0f3;
 }
-#card .heart #rec, #card .heart #rec2 {
-  margin-top: -60px;
-  width: 130px;
-  height: 130px;
-  background-color: #D32F2F;
-  border-radius: 35% 0 0 0;
+
+.hearts {
+  position: absolute;
+  z-index:2;
 }
-#card .heart #half2 {
-  -ms-transform: rotate(-90deg);
-  /* IE 9 */
-  -webkit-transform: rotate(-90deg);
-  /* Chrome, Safari, Opera */
-  transform: rotate(-90deg);
-  margin-top: -330px;
-  margin-left: -200px;
+
+.heartOne {
+  position: absolute;
+  left:100px;
+  top:250px;
+  animation: up 4s linear forwards 1s;
 }
-#card #heart2 {
-  margin-top: -60px;
-  margin-left: -130px;
+
+.heartTwo {
+  position: absolute;
+  left:270px;
+  top:230px;
+  animation: up 5s linear forwards 1.8s;
 }
-#card #heart2 #circle, #card #heart2 #rec {
-  background-color: #fff;
+
+.heartThree {
+  position: absolute;
+  left:85px;
+  top:415px;
+  animation: up 5s linear forwards 3s;
 }
-#card #heart2 #half2 #rec {
-  border-bottom: 1px solid #eee;
-  margin-top: -61px;
+
+.heartFour {
+  position: absolute;
+  left:320px;
+  top:380px;
+  animation: upTwo 9s linear infinite 3.5s;
 }
-#card #message {
-  float: left;
-  width: 200px;
-  height: 200px;
-  margin-left: -130px;
-  background-color: #333;
-  border-radius: 35% 0 35% 0;
+
+.heartFive {
+  position: absolute;
+  left:150px;
+  top:400px;
+  animation: upTwo 13s linear infinite 4.5s;
+}
+
+.right-side:before, .right-side:after {
+  position: absolute;
+  content:"";
+  transform-origin: left;
+  animation: move 1s ease infinite;
+}
+
+.right-side:before {
+  border-radius:50% 50% 50% 0;
+  width:21px;
+  height:20px;
+  background-color: #c9184a;
+  left:-0.26px;
+}
+
+.right-side:after {
+  height:0;
+  width:0;
+  border-bottom:10px solid transparent;
+  border-left: 15px solid #c9184a;
+  top:19px;
+  left:-0.26px;
+}
+
+@keyframes move {
+  0%, 100% {transform: rotateY(0);}
+  50% {transform: rotateY(-45deg);}
+}
+
+.left-side:before, .left-side:after {
+  position: absolute;
+  content:"";
+  transform-origin: right;
+  animation: move 1s ease infinite;
+}
+
+.left-side:before {
+  border-radius:50% 50% 0 50%;
+  width:20px;
+  height:20px;
+  left:-20.7px;
+  background-color: #ff4d6d;
+}
+
+.left-side:after {
+  height:0;
+  width:0;
+  left:-15px;
+  border-bottom:10px solid transparent;
+  border-right: 15px solid #ff4d6d;
+  top:19px;
+}
+
+@keyframes up {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(-200px);}
+}
+
+@keyframes upTwo {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(-450px);}
+}
+
+.text {
+  position: absolute;
+  color: #800f2f;
+  font-size:30px;
+  font-family: 'Pacifico', cursive;
+  line-height:1;
+  text-align: center;
+  width:380px;
+  left:10px;
+  z-index:3;
+  top:320px;
+  animation: up 1s ease forwards;
+  transition: .2s;
+}
+
+.hover {
+  color: white;
+  font-family: 'Pacifico', cursive;
   text-align: center;
 }
-#card #message h2 {
-  font-size: 20px;
-  color: #fff;
-  width: 160px;
-  margin-top: 60px;
-  margin-left: 16px;
-}
-#card #heart1 {
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-  -webkit-animation: closeLeft 2s ease-in-out forwards;
-  -moz-animation: closeLeft 2s ease-in-out forwards;
-  -ms-animation: closeLeft 2s ease-in-out forwards;
-  animation: closeLeft 2s ease-in-out forwards;
-}
-#card #heart2 {
-  -webkit-animation: closeRight 2s ease-in-out forwards;
-  -moz-animation: closeRight 2s ease-in-out forwards;
-  -ms-animation: closeRight 2s ease-in-out forwards;
-  animation: closeRight 2s ease-in-out forwards;
+
+.text:hover span {
+  display: none;
 }
 
-#card:hover #heart1 {
-  -webkit-animation: openLeft 2s ease-in-out forwards;
-  -moz-animation: openLeft 2s ease-in-out  forwards;
-  -ms-animation: openLeft 2 ease-in-out  forwards;
-  animation: openLeft 2s ease-in-out  forwards;
-}
-#card:hover #heart2 {
-  -webkit-animation: openRight 2s ease-in-out forwards;
-  -moz-animation: openRight 2s ease-in-out forwards;
-  -ms-animation: openRight 2 ease-in-out  forwards;
-}
+.text:hover:before {
+  content:"You are my greatest adventure, and I am endlessly grateful for every moment with you. Happy Valentine's Day Baby!";
+  font-size:25px;
 
-@-webkit-keyframes closeLeft {
-  from {
-    -webkit-transform: rotateY(0deg);
-  }
-  to {
-    -webkit-transform: rotateY(180deg);
-  }
-}
-@-moz-keyframes closeLeft {
-  from {
-    -moz-transform: rotateY(0deg);
-  }
-  to {
-    -moz-transform: rotateY(180deg);
-  }
-}
-@-ms-keyframes closeLeft {
-  from {
-    -ms-transform: rotateY(0deg);
-  }
-  to {
-    -ms-transform: rotateY(180deg);
-  }
-}
-@keyframes closeLeft {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(180deg);
-  }
-}
-@-moz-keyframes openLeft {
-  from {
-    -moz-transform: rotateY(180deg);
-  }
-  to {
-    -moz-transform: rotateY(0deg);
-  }
-}
-@-webkit-keyframes openLeft {
-  from {
-    -webkit-transform: rotateY(180deg);
-  }
-  to {
-    -webkit-transform: rotateY(0deg);
-  }
-}
-@-ms-keyframes openLeft {
-  from {
-    -ms-transform: rotateY(180deg);
-  }
-  to {
-    -ms-transform: rotateY(0deg);
-  }
-}
-@keyframes openLeft {
-  from {
-    transform: rotateY(180deg);
-  }
-  to {
-    transform: rotateY(0deg);
-  }
-}
-@-moz-keyframes openRight {
-  0% {
-    -moz-transform: rotateX(180deg);
-  }
-  100% {
-    -moz-transform: rotateX(0deg) rotateZ(180deg);
-  }
-}
-@-webkit-keyframes openRight {
-  0% {
-    -webkit-transform: rotateX(180deg);
-  }
-  100% {
-    -webkit-transform: rotateX(0deg) rotateZ(180deg);
-  }
-}
-@-ms-keyframes openRight {
-  0% {
-    -ms-transform: rotateX(180deg);
-  }
-  100% {
-    -ms-transform: rotateX(0deg) rotateZ(180deg);
-  }
-}
-@keyframes openRight {
-  0% {
-    transform: rotateX(180deg);
-  }
-  100% {
-    transform: rotateX(0deg) rotateZ(180deg);
-  }
-}
-@-webkit-keyframes closeRight {
-  from {
-    -webkit-transform: rotateX(0deg) rotate(180deg);
-  }
-  to {
-    -webkit-transform: rotateX(180deg);
-  }
-}
-@-moz-keyframes closeRight {
-  from {
-    -moz-transform: rotateX(0deg) rotate(180deg);
-  }
-  to {
-    -moz-transform: rotateX(180deg);
-  }
-}
-@-ms-keyframes closeRight {
-  from {
-    -ms-transform: rotateX(0deg) rotate(180deg);
-  }
-  to {
-    -ms-transform: rotateX(180deg);
-  }
-}
-@keyframes closeRight {
-  from {
-    transform: rotateX(0deg) rotate(180deg);
-  }
-  to {
-    transform: rotateX(180deg);
-  }
 }
